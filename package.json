@@ -1,0 +1,29 @@
+{
+  "name": "printify-mcp2",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "agents": "^0.0.67",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241011.0",
+    "typescript": "^5.6.2",
+    "wrangler": "^3.80.0"
+  },
+  "cloudflare": {
+    "bindings": {
+      "URL_SECRET": { "description": "A long random string (32+ characters). It becomes part of your private connector URL." },
+      "PRINTIFY_API_KEY": {
+        "description": "Your Printify Personal Access Token (a long string starting with 'eyJ'). Generate it in Printify under Settings > Connections > Personal Access Tokens, with shops, catalog, print providers, products and uploads permissions. Leave orders.write off."
+      }
+    }
+  }
+}
